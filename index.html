@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<title>Correspondence Helper</title>
+<meta charset="utf-8">
+<meta name="author" content="Kimberley Ford, Pratyush Raj">
+<meta name="description" content="Correspondence Helper recommends gender inclusive greetings and endings for your emails, 
+letters and other messages.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles.css">
+<!-- Import jQuery -->
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+</head>
+<body>
+<div id="header">
+<h1>Correspondence Helper</h1>
+</div>
+<div id="name-form">
+<!-- to accept input of names from user -->
+<!-- To Do -->
+</div>
+<div id="selections-container">
+<div id="buttons">
+<p>Context</p>
+<button type="button" class="context" id="business">Business</button>
+<button type="button" class="context" id="school">School</button>
+<button type="button" class="context" id="friends">Friends</button><br>
+<p>Style</p>
+<button type="button" class="style" id="formal">Formal</button>
+<button type="button" class="style" id="social">Social</button>
+
+</div>
+<p>Titles</p>
+<div id="options">
+<label for="cars">Choose a title (if known):</label>
+<select id="titles">
+  <option value="miss">Miss</option>
+  <option value="mr">Mr</option>
+  <option value="mrs">Mrs</option>
+  <option value="mrs">Ms</option>
+  <option value="mx">Mx</option>
+  <option value="doctor">Doctor</option>
+</select> 
+</div>
+<button type="button" class="action" id="helpme" onclick="getRecommendations()">Help Me</button>
+</div>
+<p id="recommendations">
+</p>
+<div id="footer">
+</div>
+
+<!-- My scripts -->
+<script src="scripts.js" defer></script>
+</body>
+</html>
