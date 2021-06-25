@@ -51,6 +51,8 @@ Catch you later
 Miss
 Mr
 Mrs
+Ms
+Mx
 Doctor
 the Head Teacher
 
