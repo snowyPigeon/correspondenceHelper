@@ -10,12 +10,12 @@ The inputs are categorised as below.
 
 ## Data Strings Structure
 
-###Greetings Business Formal
+### Greetings Business Formal
 Dear 
 For The Attention Of
 To Whom It May Concern
 
-##Greetings School Formal
+## Greetings School Formal
 Dear 
 For The Attention Of
 
