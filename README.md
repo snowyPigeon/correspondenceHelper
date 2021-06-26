@@ -23,7 +23,19 @@ For The Attention Of
 Dear
 Dearest
 
-### Greetings Social Friendly
+### Greetings Business Social
+Hello
+Hi
+Good morning
+Good afternoon
+
+### Greetings School Social
+Hello
+Hi
+Good morning
+Good afternoon
+
+### Greetings Friends Social
 Hello
 Hi
 Hey
@@ -34,7 +46,7 @@ Good afternoon
 Yours Sincerely
 Yours Faithfully
 
-### Endings Business/School Friendly
+### Endings Business/School Social
 Regards
 Kind regards
 
@@ -42,7 +54,7 @@ Kind regards
 Your most loyal friend
 Your humble and obedient servant
 
-### Endings Social Friendly
+### Endings Friends Social
 Best wishes
 Take care
 Catch you later
@@ -54,7 +66,6 @@ Mrs
 Ms
 Mx
 Doctor
-the Head Teacher
 
 ### Firstname
 variable "firstName"

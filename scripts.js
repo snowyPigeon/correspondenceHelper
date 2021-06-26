@@ -1,5 +1,8 @@
+// selected button colors
+var activeColor = "#CCFFFF"; // changeable value
+
 // set up default button colors
-var defaultColor = "#FFCCFF";
+var defaultColor = "#FFCCFF"; // changeable value
 document.getElementById("business").style.backgroundColor = defaultColor;
 document.getElementById("school").style.backgroundColor = defaultColor;
 document.getElementById("friends").style.backgroundColor = defaultColor;
@@ -7,10 +10,7 @@ document.getElementById("formal").style.backgroundColor = defaultColor;
 document.getElementById("social").style.backgroundColor = defaultColor;
 document.getElementById("getRecs").style.backgroundColor = defaultColor;
 
-// selected button colors
-var activeColor = "#CCFFFF";
-
-// button states
+// initialise button states
 var businessOn = false;
 var schoolOn = false;
 var friendsOn = false;
@@ -19,11 +19,18 @@ var socialOn = false;
 
 // Get the greetings and endings
 function getRecommendations(){
-	// query the relevant tables for greeting, title, firstName, surname and ending
 let chosenContext = getSelections();
+// get the json object storing our greetings and endings
+const data = require('correspondence.json');
+// change the below to get your greetings and endings
+/* $('#response').html("Greeting: " + data.current.weather[0].description + ", Temp: " +
+						data.current.temp + "C" + ", Temp Feels Like: " + data.current.feels_like + "C" + ", Wind Speed: " +
+						new_speed + " MPH" + ", Dew Point: " + data.current.dew_point + "C"); */
+
+
 }
 
-// Get the chosen context
+// Get the chosen context and style
 function getSelections(){
 	var selections = [];
 	if (businessOn == true){
