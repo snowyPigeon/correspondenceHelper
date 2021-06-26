@@ -23,18 +23,19 @@ to recieve gender inclusive and neutral recommendations for greetings and ending
 <div id="options">
 <label for="titles">Choose a title (if known):</label>
 <select id="titles">
-  <option value="miss">Miss</option>
-  <option value="mr">Mr</option>
-  <option value="mrs">Mrs</option>
-  <option value="ms">Ms</option>
-  <option value="mx">Mx</option>
-  <option value="doctor">Doctor</option>
+  <option value="Miss">Miss</option>
+  <option value="Mr">Mr</option>
+  <option value="Mrs">Mrs</option>
+  <option value="Ms">Ms</option>
+  <option value="Mx">Mx</option>
+  <option value="Doctor">Doctor</option>
+  <option value="Unknown">Unknown</option>
 </select> 
 </div>
 <label for="fname">First name:</label>
-<input type="text" id="firstName">
-<label for="fname">Surname:</label>
-<input type="text" id="surName">
+<input type="text" id="fname">
+<label for="sname">Surname:</label>
+<input type="text" id="sname">
 </div>
 <div id="selections-container">
 <div id="buttons">
@@ -51,8 +52,8 @@ to recieve gender inclusive and neutral recommendations for greetings and ending
 <button type="button" class="action" id="getRecs">Get recommended greetings and endings</button>
 </div>
 <div id="recommendations">
-<p id="response">Your recommendations will appear here.
-</p>
+<p class="responses" id="guide">Your recommendations will appear here.</p>
+
 </div>
 <div id="footer">
 </div>
