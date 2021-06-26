@@ -14,10 +14,25 @@ letters and other messages.">
 <body>
 <div id="header">
 <h1>Correspondence Helper</h1>
+<p>Enter the name and title of your contact (if known) and choose the context and style of your communication, 
+to recieve gender inclusive and neutral recommendations for greetings and endings for your emails, letters and messages.</p>
 </div>
 <div id="name-form">
-<!-- to accept input of names from user -->
-<!-- To Do -->
+<div id="options">
+<label for="titles">Choose a title (if known):</label>
+<select id="titles">
+  <option value="miss">Miss</option>
+  <option value="mr">Mr</option>
+  <option value="mrs">Mrs</option>
+  <option value="ms">Ms</option>
+  <option value="mx">Mx</option>
+  <option value="doctor">Doctor</option>
+</select> 
+</div>
+<label for="fname">First name:</label>
+<input type="text" id="firstName">
+<label for="fname">Surname:</label>
+<input type="text" id="surName">
 </div>
 <div id="selections-container">
 <div id="buttons">
@@ -30,22 +45,13 @@ letters and other messages.">
 <button type="button" class="style" id="social">Social</button>
 
 </div>
-<p>Titles</p>
-<div id="options">
-<label for="cars">Choose a title (if known):</label>
-<select id="titles">
-  <option value="miss">Miss</option>
-  <option value="mr">Mr</option>
-  <option value="mrs">Mrs</option>
-  <option value="mrs">Ms</option>
-  <option value="mx">Mx</option>
-  <option value="doctor">Doctor</option>
-</select> 
+
+<button type="button" class="action" id="getRecs">Get recommended greetings and endings</button>
 </div>
-<button type="button" class="action" id="helpme" onclick="getRecommendations()">Help Me</button>
-</div>
-<p id="recommendations">
+<div id="recommendations">
+<p id="response">
 </p>
+</div>
 <div id="footer">
 </div>
 

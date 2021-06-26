@@ -1,0 +1,41 @@
+#header, #name-form, #selections-container, #recommendations {
+	background-color: white;
+	border-radius: 5px;
+	padding: 10px;
+	margin: 10px;
+}
+
+#recommendations {
+	border-color: violet;
+	border-style: solid;
+	border-width: 3px;
+	border-radius: 5px;
+	min-height: 50px;
+	padding: 3px;
+	margin: 3px;
+	
+}
+
+
+button:hover {
+	border-color: #99FFFF;
+}
+
+button, input, select {
+	margin: 2px;
+	border-color: violet;
+	border-radius: 5px;
+}
+
+body {
+	font-family: Arial;
+	background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+
+}
+
+h1 {
+	color: violet;
+	background-color: indigo;
+	border-radius: 5px;
+	padding: 3px;
+}
