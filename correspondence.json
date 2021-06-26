@@ -1,0 +1,26 @@
+{
+"title": ["Miss", "Mr", "Mrs", "Ms", "Mx", "Doctor"],
+"formal": {
+	"greetings": [
+		{"business": ["Dear", "For The Attention Of", "To whom it may concern"]},
+		{"school": ["Dear", "For The Attention Of"]},
+		{"friends": ["Dear", "Dearest"]}
+		],
+	"endings": [
+		{"business": ["Yours Sincerely", "Yours Faithfully"]},
+		{"school": ["Yours Sincerely", "Yours Faithfully"]},
+		{"friends": ["Your most loyal friend", "Your humble and obedient servant", "Your friend"]}
+]},
+"social": {
+	"greetings": [
+		{"business": ["Hello", "Hi", "Good morning", "Good afternoon"]},
+		{"school": ["Hello", "Hi", "Good morning", "Good afternoon"]},
+		{"friends": ["Hello", "Hi", "Hey", "Good morning", "Good afternoon"]}
+		],
+	"endings": [
+		{"business": ["Regards", "Kind regards"]},
+		{"school": ["Regards", "Kind regards"]},
+		{"friends": ["Best wishes", "Take care", "Catch you later"]}
+	]
+}
+} 
