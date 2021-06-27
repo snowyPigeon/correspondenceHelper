@@ -1,11 +1,11 @@
-# Correspondence Helper
-Correspondence Helper will recommend appropriate greetings and endings for emails, letters and other messages.
+# Send with Pride
+Send with Pride is a correspondence helper tool that will recommend appropriate greetings and endings for emails, letters and other messages.
 
-To use the Correspondence Helper, you can submit an optional name (if the recipient is known), and select a title and context. 
-Tell this app to "Help Me", and this application will recommend the greetings and endings to use in your correspondence. 
+To use the Send with Pride, you can submit an optional name (if the recipient is known), and select a title and context. 
+Tell this app to "Get recommended greetings and endings", and this application will recommend the greetings and endings to use in your correspondence. 
 If a name is given, the name will be stored temporarily on the user's machine as it is processed.
 
-## Working with Correspondence Helper
+## Working with Send with Pride
 The inputs are categorised as below.
 
 ## Data Strings Structure
