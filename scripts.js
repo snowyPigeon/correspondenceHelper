@@ -9,6 +9,7 @@ document.getElementById("friends").style.backgroundColor = defaultColor;
 document.getElementById("formal").style.backgroundColor = defaultColor;
 document.getElementById("social").style.backgroundColor = defaultColor;
 document.getElementById("getRecs").style.backgroundColor = defaultColor;
+document.getElementById("hide-button").style.backgroundColor = defaultColor;
 
 // initialise button states
 var businessOn = false;
@@ -19,75 +20,189 @@ var socialOn = false;
 
 // Get the greetings and endings
 function getRecommendations(){
-let title = document.getElementById("titles").value;
-let firstName = document.getElementById("fname").value;
-let surname = document.getElementById("sname").value;
-let chosenContext = getSelections();
-var data = {
-"title": ["Miss", "Mr", "Mrs", "Ms", "Mx", "Doctor"],
-"formal": {
-	"greetings": [
-		{"business": ["Dear", "For The Attention Of", "To whom it may concern"]},
-		{"school": ["Dear", "For The Attention Of"]},
-		{"friends": ["Dear", "Dearest"]}
-		],
-	"endings": [
-		{"business": ["Yours Sincerely", "Yours Faithfully"]},
-		{"school": ["Yours Sincerely", "Yours Faithfully"]},
-		{"friends": ["Your most loyal friend", "Your humble and obedient servant", "Your friend"]}
-]},
-"social": {
-	"greetings": [
-		{"business": ["Hello", "Hi", "Good morning", "Good afternoon"]},
-		{"school": ["Hello", "Hi", "Good morning", "Good afternoon"]},
-		{"friends": ["Hello", "Hi", "Hey", "Good morning", "Good afternoon"]}
-		],
-	"endings": [
-		{"business": ["Regards", "Kind regards"]},
-		{"school": ["Regards", "Kind regards"]},
-		{"friends": ["Best wishes", "Take care", "Catch you later"]}
-	]
-}
-};
+	if ((businessOn != false || schoolOn != false || friendsOn || false) && (formalOn != false || socialOn != false)){
+		resetChoices();
+	}
+	let title = document.getElementById("titles").value;
+	let firstName = document.getElementById("fname").value;
+	let surname = document.getElementById("sname").value;
+	let chosenContext = getSelections();
+	var data = {
+	"title": ["Miss", "Mr", "Mrs", "Ms", "Mx", "Doctor"],
+	"formal": {
+		"greetings": [
+			{"business": ["Dear", "For The Attention Of", "To whom it may concern"]},
+			{"school": ["Dear", "For The Attention Of"]},
+			{"friends": ["Dear", "Dearest"]}
+			],
+		"endings": [
+			{"business": ["Yours Sincerely", "Yours Faithfully"]},
+			{"school": ["Yours Sincerely", "Yours Faithfully"]},
+			{"friends": ["Your most loyal friend", "Your humble and obedient servant", "Your friend"]}
+	]},
+	"social": {
+		"greetings": [
+			{"business": ["Hello", "Hi", "Good morning", "Good afternoon"]},
+			{"school": ["Hello", "Hi", "Good morning", "Good afternoon"]},
+			{"friends": ["Hello", "Hi", "Hey", "Good morning", "Good afternoon"]}
+			],
+		"endings": [
+			{"business": ["Regards", "Kind regards"]},
+			{"school": ["Regards", "Kind regards"]},
+			{"friends": ["Best wishes", "Take care", "Catch you later"]}
+		]
+	}
+	};
 
 // change the below to get your greetings and endings
-
-if (chosenContext.includes("formal") && chosenContext.includes("business")){
-	console.log("includes works");
-	let greetings = data.formal.greetings[0].business.length;
+// formal business
+	if (chosenContext.includes("formal") && chosenContext.includes("business")){
+		console.log("includes works");
+		let greetings = data.formal.greetings[0].business.length;
+		console.log(greetings);
+		for (var i = 0; i < greetings; i++)
+		{
+			if (((firstName == "") && (surname == "")) || (title == "Unknown")){
+				if (data.formal.greetings[0].business[i].includes("To whom it may concern")){
+				$(".responses").append('<br><textarea id="' + i + '" rows="2" cols="25" readonly>' + data.formal.greetings[0].business[i] + '</textarea><button onclick="clipboard(' + i + ')">Copy text</button>');
+			}
+				else {
+					// do nothing
+				}
+			}
+			else {
+				if (data.formal.greetings[0].business[i].includes("To whom it may concern")){
+			}
+				else {
+					$(".responses").append('<br><textarea id="' + i + '" rows="2" cols="25" readonly>' + data.formal.greetings[0].business[i] + " " + title + " " + firstName + " " + surname + '</textarea><button onclick="clipboard(' + i + ')">Copy text</button>');
+				}
+			}	
+	}
+		let endings = data.formal.endings[0].business.length;
+		console.log(endings);
+		for (var i = 0; i < endings; i++)
+		{
+			var j = greetings + i;
+			console.log("value of j: " + j);
+			$(".responses").append('<br><textarea id="' + j + '" rows="2" cols="25" readonly>' + data.formal.endings[0].business[i] + '</textarea><button onclick="clipboard(' + j + ')">Copy text</button>');
+		}
+	}
+	// formal school
+	if (chosenContext.includes("formal") && chosenContext.includes("school")){
+		let greetings = data.formal.greetings[1].school.length;
+		console.log(greetings);
+		for (var i = 0; i < greetings; i++)
+		{
+			if (surname == ""){
+			
+			}
+			if (title == "Unknown"){
+				$(".responses").append('<br><textarea id="' + i + '" rows="2" cols="25" readonly>' + data.formal.greetings[1].school[i] + " " + firstName + " " + surname + '</textarea><button onclick="clipboard(' + i + ')">Copy text</button>');
+			}
+			else {
+				$(".responses").append('<br><textarea id="' + i + '" rows="2" cols="25" readonly>' + data.formal.greetings[1].school[i] + " " + title + " " + firstName + " " + surname + '</textarea><button onclick="clipboard(' + i + ')">Copy text</button>');
+			}
+			}	
+		let endings = data.formal.endings[1].school.length;
+		console.log(endings);
+		for (var i = 0; i < endings; i++)
+		{
+			var j = greetings + i;
+			console.log("value of j: " + j);
+			$(".responses").append('<br><textarea id="' + j + '" rows="2" cols="25" readonly>' + data.formal.endings[1].school[i] + '</textarea><button onclick="clipboard(' + j + ')">Copy text</button>');
+		}
+	}
+	// formal friends
+	if (chosenContext.includes("formal") && chosenContext.includes("friends")){
+	let greetings = data.formal.greetings[2].friends.length;
 	console.log(greetings);
 	for (var i = 0; i < greetings; i++)
 	{
-		if ((firstName == "") && (surname == "")){
-			if (data.formal.greetings[0].business[i].includes("To whom it may concern")){
-			$(".responses").append('<br><textarea id="' + i + '" rows="2" cols="25" readonly>' + data.formal.greetings[0].business[i] + '</textarea><button onclick="clipboard(' + i + ')">Copy text</button>');
-		}
-		else {
-		
-		}
-		}
-		else {
-			if (data.formal.greetings[0].business[i].includes("To whom it may concern")){
+		if (surname == ""){
 			
-			}
-			else {
-				$(".responses").append('<br><textarea id="' + i + '" rows="2" cols="25" readonly>' + data.formal.greetings[0].business[i] + " " + title + " " + firstName + " " + surname + '</textarea><button onclick="clipboard(' + i + ')">Copy text</button>');
-			}
 		}
-		
-
-		
-	}
-	let endings = data.formal.endings[0].business.length;
+		else {
+			$(".responses").append('<br><textarea id="' + i + '" rows="2" cols="25" readonly>' + data.formal.greetings[2].friends[i] + " " + firstName + '</textarea><button onclick="clipboard(' + i + ')">Copy text</button>');
+		}
+		}	
+	let endings = data.formal.endings[2].friends.length;
 	console.log(endings);
 	for (var i = 0; i < endings; i++)
 	{
 		var j = greetings + i;
 		console.log("value of j: " + j);
-		$(".responses").append('<br><textarea id="' + j + '" rows="2" cols="25" readonly>' + data.formal.endings[0].business[i] + '</textarea><button onclick="clipboard(' + j + ')">Copy text</button>');
+		$(".responses").append('<br><textarea id="' + j + '" rows="2" cols="25" readonly>' + data.formal.endings[2].friends[i] + '</textarea><button onclick="clipboard(' + j + ')">Copy text</button>');
 	}
+	}
+	// social business
+	if (chosenContext.includes("social") && chosenContext.includes("business")){
+	let greetings = data.social.greetings[0].business.length;
+	console.log(greetings);
+	for (var i = 0; i < greetings; i++)
+	{
+		if (firstName == ""){
+			
+		}
+		else {
+			$(".responses").append('<br><textarea id="' + i + '" rows="2" cols="25" readonly>' + data.social.greetings[0].business[i] + " " + firstName + '</textarea><button onclick="clipboard(' + i + ')">Copy text</button>');
+		}
+		}	
+	let endings = data.social.endings[0].business.length;
+	console.log(endings);
+	for (var i = 0; i < endings; i++)
+	{
+		var j = greetings + i;
+		console.log("value of j: " + j);
+		$(".responses").append('<br><textarea id="' + j + '" rows="2" cols="25" readonly>' + data.social.endings[0].business[i] + '</textarea><button onclick="clipboard(' + j + ')">Copy text</button>');
+	}
+	}
+	// social school
+	if (chosenContext.includes("social") && chosenContext.includes("school")){
+	let greetings = data.social.greetings[1].school.length;
+	console.log(greetings);
+	for (var i = 0; i < greetings; i++)
+	{
+		if (firstName == ""){
+			
+		}
+		else {
+			$(".responses").append('<br><textarea id="' + i + '" rows="2" cols="25" readonly>' + data.social.greetings[1].school[i] + " " + firstName + '</textarea><button onclick="clipboard(' + i + ')">Copy text</button>');
+		}
+		}	
+	let endings = data.social.endings[1].school.length;
+	console.log(endings);
+	for (var i = 0; i < endings; i++)
+	{
+		var j = greetings + i;
+		console.log("value of j: " + j);
+		$(".responses").append('<br><textarea id="' + j + '" rows="2" cols="25" readonly>' + data.social.endings[1].school[i] + '</textarea><button onclick="clipboard(' + j + ')">Copy text</button>');
+	}
+	}
+	// social friends
+	if (chosenContext.includes("social") && chosenContext.includes("friends")){
+	let greetings = data.social.greetings[2].friends.length;
+	console.log(greetings);
+	for (var i = 0; i < greetings; i++)
+	{
+		if (firstName == ""){
+			
+		}
+		else {
+			$(".responses").append('<br><textarea id="' + i + '" rows="2" cols="25" readonly>' + data.social.greetings[2].friends[i] + " " + firstName + '</textarea><button onclick="clipboard(' + i + ')">Copy text</button>');
+		}
+		}	
+	let endings = data.social.endings[2].friends.length;
+	console.log(endings);
+	for (var i = 0; i < endings; i++)
+	{
+		var j = greetings + i;
+		console.log("value of j: " + j);
+		$(".responses").append('<br><textarea id="' + j + '" rows="2" cols="25" readonly>' + data.social.endings[2].friends[i] + '</textarea><button onclick="clipboard(' + j + ')">Copy text</button>');
+	}
+	}
+	
 }
-}
+
 
 // From https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_copy_clipboard
 function clipboard(input) {
@@ -120,6 +235,7 @@ function getSelections(){
 	return selections;
 }
 
+// note that JS stores background colours as rgb values in the html
 function toggleBusiness(){
 	var business = document.getElementById("business");
 	if (business.style.backgroundColor !== activeColor){
@@ -130,10 +246,7 @@ function toggleBusiness(){
 		schoolOn = false;
 		friendsOn = false;
 	}
-	else {
-		document.getElementById("business").style.backgroundColor = defaultColor;
-		businessOn = false;
-	}
+	resetChoices();
 }
 
 function toggleSchool(){
@@ -146,10 +259,7 @@ function toggleSchool(){
 	    businessOn = false;
 		friendsOn = false;
 	}
-	else {
-		document.getElementById("school").style.backgroundColor = defaultColor;
-		schoolOn = false;
-	}
+	resetChoices();
 }
 
 function toggleFriends(){
@@ -162,10 +272,7 @@ function toggleFriends(){
 		businessOn = false;
 		schoolOn = false;
 	}
-	else {
-		document.getElementById("friends").style.backgroundColor = defaultColor;
-		friendsOn = false;
-	}
+	resetChoices();
 }
 
 function toggleFormal(){
@@ -181,7 +288,7 @@ function toggleFormal(){
 		formalOn = false;
 		
 	}
-	console.log("formal toggled");
+	resetChoices();
 }
 
 function toggleSocial(){
@@ -196,10 +303,33 @@ function toggleSocial(){
 		document.getElementById("social").style.backgroundColor = defaultColor;
 		socialOn = false;
 	}
-	console.log("social toggled");
+	resetChoices();
+}
+
+// Clears the context and style settings when a button is toggled
+function resetChoices(){
+	// clear the dynamic jQuery
+	// TO DO
+	$(".responses").empty();
+}
+
+function toggleInstructions(){
+	// TO DO
+	if (document.getElementById("hide-button").innerHTML === "Hide"){
+		document.getElementById("instructions").style.display = "none";
+		document.getElementById("hide-button").innerHTML = "Show instructions";
+	}
+	else {
+		document.getElementById("instructions").style.display = "block";
+		document.getElementById("hide-button").innerHTML = "Hide";
+	}
+	
 }
 
 // Event listeners
+document.getElementById("hide-button").addEventListener("click", 
+toggleInstructions);
+
 document.getElementById("business").addEventListener("click", 
 toggleBusiness);
 
